@@ -14,6 +14,8 @@ This application’s language is C# based on .NET Core.
 
 ## The Structure (Solution level)
 
+(This is not finish one so it is not same as the real code part. When I make the code, it should be change)
+
 ```mermaid
 classDiagram
 class Pet

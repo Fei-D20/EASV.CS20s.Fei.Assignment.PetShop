@@ -1,18 +1,15 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <OutputType>Exe</OutputType>
         <TargetFramework>net5.0</TargetFramework>
     </PropertyGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\EASV.CS20s.Fei.Assignment.PetShop.Core\EASV.CS20s.Fei.Assignment.PetShop.Core.csproj" />
-      <ProjectReference Include="..\EASV.CS20s.Fei.Assignment.PetShop.Domain\EASV.CS20s.Fei.Assignment.PetShop.Domain.csproj" />
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Application" />
-      <Folder Include="UI" />
+      <Folder Include="IApplicationService" />
     </ItemGroup>
 
 </Project>

@@ -1,8 +1,0 @@
-<Project Sdk="Microsoft.NET.Sdk">
-
-    <PropertyGroup>
-        <TargetFramework>net5.0</TargetFramework>
-        <RootNamespace>EASV.CS20s.Fei.Assignment.PetShop</RootNamespace>
-    </PropertyGroup>
-
-</Project>

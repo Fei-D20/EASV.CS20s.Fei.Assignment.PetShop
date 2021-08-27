@@ -1,8 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <OutputType>Exe</OutputType>
         <TargetFramework>net5.0</TargetFramework>
+        <RootNamespace>EASV.CS20s.Fei.Assignment.PetShop</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
@@ -11,8 +11,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Application" />
-      <Folder Include="UI" />
+      <Folder Include="Converters" />
     </ItemGroup>
 
 </Project>

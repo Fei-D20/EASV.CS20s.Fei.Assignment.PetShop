@@ -1,12 +1,12 @@
 using System;
 
-namespace EASV.CS20s.Fei.Assignment.PetShop.Core.Models
+namespace EASV.CS20s.Fei.Assignment.PetShop.Entity
 {
-    public class Pet
+    public class PetEntity
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public PetType PetType { get; set; }
+        public PetTypeEntity PetTypeEntity { get; set; }
         public DateTime Birthdate { get; set; }
         public DateTime? SoldDate { get; set; }
         public string Color { get; set; }
