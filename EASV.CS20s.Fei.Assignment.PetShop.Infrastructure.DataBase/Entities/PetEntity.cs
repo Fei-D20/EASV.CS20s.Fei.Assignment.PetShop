@@ -1,6 +1,6 @@
 using System;
 
-namespace EASV.CS20s.Fei.Assignment.PetShop.Entity
+namespace EASV.CS20s.Fei.Assignment.PetShop.Entities
 {
     public class PetEntity
     {

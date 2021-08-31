@@ -2,6 +2,8 @@ using System;
 
 namespace EASV.CS20s.Fei.Assignment.PetShop.Core.Models
 {
+    /// <summary>
+    /// </summary>
     public class Pet
     {
         public int Id { get; set; }

@@ -6,13 +6,9 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\EASV.CS20s.Fei.Assignment.PetShop.Core\EASV.CS20s.Fei.Assignment.PetShop.Core.csproj" />
-      <ProjectReference Include="..\EASV.CS20s.Fei.Assignment.PetShop.Domain\EASV.CS20s.Fei.Assignment.PetShop.Domain.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="Application" />
-      <Folder Include="UI" />
+        <ProjectReference Include="..\EASV.CS20s.Fei.Assignment.PetShop.Core\EASV.CS20s.Fei.Assignment.PetShop.Core.csproj" />
+        <ProjectReference Include="..\EASV.CS20s.Fei.Assignment.PetShop.Domain\EASV.CS20s.Fei.Assignment.PetShop.Domain.csproj" />
+        <ProjectReference Include="..\EASV.CS20s.Fei.Assignment.PetShop.UIService\EASV.CS20s.Fei.Assignment.PetShop.UIService.csproj" />
     </ItemGroup>
 
 </Project>

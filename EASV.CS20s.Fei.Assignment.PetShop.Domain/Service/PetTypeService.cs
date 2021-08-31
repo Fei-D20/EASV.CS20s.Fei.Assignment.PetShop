@@ -7,19 +7,19 @@ namespace EASV.CS20s.Fei.Assignment.PetShop.Domain.Service
 {
     public class PetTypeService : IPetTypeService
     {
-        private IPetTypeRepositoryService _iPetTypeRepositoryService;
+        private readonly IPetTypeRepositoryService _iPetTypeRepositoryService;
 
         public PetTypeService(IPetTypeRepositoryService iPetTypeRepositoryService)
         {
             _iPetTypeRepositoryService = iPetTypeRepositoryService;
         }
 
-        public bool Add(PetType petType)
+        public PetType Add(PetType petType)
         {
             return _iPetTypeRepositoryService.Create(petType);
         }
 
-        public bool Delete(PetType petType)
+        public PetType Delete(PetType petType)
         {
             return _iPetTypeRepositoryService.Remove(petType);
         }
@@ -38,6 +38,5 @@ namespace EASV.CS20s.Fei.Assignment.PetShop.Domain.Service
         {
             return _iPetTypeRepositoryService.ReadAll();
         }
-        
     }
 }

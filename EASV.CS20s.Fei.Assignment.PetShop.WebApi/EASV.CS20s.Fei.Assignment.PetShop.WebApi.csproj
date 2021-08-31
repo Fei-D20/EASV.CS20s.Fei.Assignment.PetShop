@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\EASV.CS20s.Fei.Assignment.PetShop.Core\EASV.CS20s.Fei.Assignment.PetShop.Core.csproj" />
+      <ProjectReference Include="..\EASV.CS20s.Fei.Assignment.PetShop.Domain\EASV.CS20s.Fei.Assignment.PetShop.Domain.csproj" />
+      <ProjectReference Include="..\EASV.CS20s.Fei.Assignment.PetShop.Infrastructure.DataBase\EASV.CS20s.Fei.Assignment.PetShop.Infrastructure.DataBase.csproj" />
+    </ItemGroup>
+
+</Project>

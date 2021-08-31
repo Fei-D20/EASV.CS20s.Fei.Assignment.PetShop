@@ -2,16 +2,11 @@
 
     <PropertyGroup>
         <TargetFramework>net5.0</TargetFramework>
-        <RootNamespace>EASV.CS20s.Fei.Assignment.PetShop</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\EASV.CS20s.Fei.Assignment.PetShop.Core\EASV.CS20s.Fei.Assignment.PetShop.Core.csproj" />
       <ProjectReference Include="..\EASV.CS20s.Fei.Assignment.PetShop.Domain\EASV.CS20s.Fei.Assignment.PetShop.Domain.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="Converters" />
     </ItemGroup>
 
 </Project>
