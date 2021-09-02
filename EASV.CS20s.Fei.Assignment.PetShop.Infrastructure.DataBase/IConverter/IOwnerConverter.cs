@@ -3,10 +3,9 @@ using EASV.CS20s.Fei.Assignment.PetShop.Infrastructure.DataBase.Entities;
 
 namespace EASV.CS20s.Fei.Assignment.PetShop.Infrastructure.DataBase.IConverter
 {
-    public interface IPetConverter
+    public interface IOwnerConverter
     {
-        public Pet Convert(PetEntity petEntity);
-        public PetEntity Convert(Pet pet);
-
+        public Owner Convert(OwnerEntity ownerEntity);
+        public OwnerEntity Convert(Owner owner);
     }
 }

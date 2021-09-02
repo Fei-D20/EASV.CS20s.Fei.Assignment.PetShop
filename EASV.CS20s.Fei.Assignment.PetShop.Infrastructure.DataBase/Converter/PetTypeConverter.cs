@@ -1,8 +1,8 @@
 using EASV.CS20s.Fei.Assignment.PetShop.Core.Models;
-using EASV.CS20s.Fei.Assignment.PetShop.Entities;
-using EASV.CS20s.Fei.Assignment.PetShop.IConverter;
+using EASV.CS20s.Fei.Assignment.PetShop.Infrastructure.DataBase.Entities;
+using EASV.CS20s.Fei.Assignment.PetShop.Infrastructure.DataBase.IConverter;
 
-namespace EASV.CS20s.Fei.Assignment.PetShop.ConverterService
+namespace EASV.CS20s.Fei.Assignment.PetShop.Infrastructure.DataBase.Converter
 {
     public class PetTypeConverter :IPetTypeConverter
     {

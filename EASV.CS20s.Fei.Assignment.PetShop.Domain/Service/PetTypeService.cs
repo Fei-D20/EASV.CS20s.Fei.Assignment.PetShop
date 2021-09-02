@@ -1,42 +1,42 @@
 using System.Collections.Generic;
 using EASV.CS20s.Fei.Assignment.PetShop.Core.IService;
 using EASV.CS20s.Fei.Assignment.PetShop.Core.Models;
-using EASV.CS20s.Fei.Assignment.PetShop.Domain.IRepositoryService;
+using EASV.CS20s.Fei.Assignment.PetShop.Domain.IRepository;
 
 namespace EASV.CS20s.Fei.Assignment.PetShop.Domain.Service
 {
     public class PetTypeService : IPetTypeService
     {
-        private readonly IPetTypeRepositoryService _iPetTypeRepositoryService;
+        private readonly IPetTypeRepository _iPetTypeRepository;
 
-        public PetTypeService(IPetTypeRepositoryService iPetTypeRepositoryService)
+        public PetTypeService(IPetTypeRepository iPetTypeRepository)
         {
-            _iPetTypeRepositoryService = iPetTypeRepositoryService;
+            _iPetTypeRepository = iPetTypeRepository;
         }
 
         public PetType Add(PetType petType)
         {
-            return _iPetTypeRepositoryService.Create(petType);
+            return _iPetTypeRepository.Create(petType);
         }
 
         public PetType Delete(PetType petType)
         {
-            return _iPetTypeRepositoryService.Remove(petType);
+            return _iPetTypeRepository.Remove(petType);
         }
 
         public PetType Modify(PetType petType)
         {
-            return _iPetTypeRepositoryService.Update(petType);
+            return _iPetTypeRepository.Update(petType);
         }
 
         public PetType Get(PetType petType)
         {
-            return _iPetTypeRepositoryService.Read(petType);
+            return _iPetTypeRepository.Read(petType);
         }
 
         public List<PetType> GetAll()
         {
-            return _iPetTypeRepositoryService.ReadAll();
+            return _iPetTypeRepository.ReadAll();
         }
     }
 }

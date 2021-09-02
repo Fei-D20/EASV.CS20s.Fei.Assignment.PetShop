@@ -1,48 +1,84 @@
-using System;
 using System.Collections.Generic;
 using EASV.CS20s.Fei.Assignment.PetShop.Core.Models;
-using EASV.CS20s.Fei.Assignment.PetShop.Domain.IRepositoryService;
-using EASV.CS20s.Fei.Assignment.PetShop.Entities;
-using EASV.CS20s.Fei.Assignment.PetShop.IConverter;
+using EASV.CS20s.Fei.Assignment.PetShop.Domain.IRepository;
+using EASV.CS20s.Fei.Assignment.PetShop.Infrastructure.DataBase.Entities;
+using EASV.CS20s.Fei.Assignment.PetShop.Infrastructure.DataBase.IConverter;
 
-namespace EASV.CS20s.Fei.Assignment.PetShop.Infrastructure.DataBase.RepositoriesService
+namespace EASV.CS20s.Fei.Assignment.PetShop.Infrastructure.DataBase.Repositories
 {
-    public class PetRepositoryService : IPetRepositoryService
+    public class PetRepository : IPetRepository
     {
         public static List<PetEntity> PetEntities { get; set; } = new();
         private static int _id = 1;
         private readonly IPetConverter _petConverter;
 
-        public PetRepositoryService(IPetConverter iPetConverter)
+        
+        public PetRepository(IPetConverter iPetConverter)
         {
             _petConverter = iPetConverter;
         }
 
         public Pet Create(Pet pet)
         {
-            
-            throw new NotImplementedException();
-
+            var petEntity = _petConverter.Convert(pet);
+            petEntity.Id = _id++;
+            PetEntities.Add(petEntity);
+            return _petConverter.Convert(petEntity);
         }
 
         public Pet Remove(Pet pet)
         {
-            throw new NotImplementedException();
+            var petEntity = _petConverter.Convert(pet);
+            foreach (var VARIABLE in PetEntities)
+            {
+                if (VARIABLE.Id == petEntity.Id)
+                {
+                    PetEntities.Remove(petEntity);
+                    return _petConverter.Convert(petEntity);
+                }
+            }
+
+            return null;
         }
 
         public Pet Update(Pet pet)
         {
-            throw new NotImplementedException();
+            var petEntity = _petConverter.Convert(pet);
+            foreach (var VARIABLE in PetEntities)
+            {
+                if (VARIABLE.Id == pet.Id)
+                {
+                    PetEntities.Insert(petEntity.Id - 1, petEntity);
+                    return _petConverter.Convert(petEntity);
+                }
+            }
+
+            return null;
         }
 
-        public Pet Read(int id)
+        public Pet Read(Pet pet)
         {
-            throw new NotImplementedException();
+            var petEntity = _petConverter.Convert(pet);
+            foreach (var VARIABLE in PetEntities)
+            {
+                if (VARIABLE.Id == petEntity.Id)
+                {
+                    return _petConverter.Convert(VARIABLE);
+                }
+            }
+
+            return null;
         }
 
         public List<Pet> ReadAll()
         {
-            throw new NotImplementedException();
+            List<Pet> pets = new List<Pet>();
+            foreach (var VARIABLE in PetEntities)
+            {
+                pets.Add(_petConverter.Convert(VARIABLE));
+            }
+
+            return pets;
         }
     }
 }

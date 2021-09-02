@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using EASV.CS20s.Fei.Assignment.PetShop.Core.Models;
 
-namespace EASV.CS20s.Fei.Assignment.PetShop.Domain.IRepositoryService
+namespace EASV.CS20s.Fei.Assignment.PetShop.Domain.IRepository
 {
-    public interface IPetTypeRepositoryService
+    public interface IPetTypeRepository
     {
         public PetType Create(PetType petType);
         public PetType Remove(PetType petType);
