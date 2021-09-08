@@ -7,7 +7,7 @@ namespace EASV.CS20s.Fei.Assignment.PetShop.WebApi.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class PetTypeController
+    public class PetTypeController : ControllerBase
     {
         private readonly IPetTypeService _iPetTypeService;
 

@@ -15,6 +15,7 @@ namespace EASV.CS20s.Fei.Assignment.PetShop.Infrastructure.DataBase.Converter
                 Color = petEntity.Color,
                 Name = petEntity.Name,
                 PetType = new PetTypeConverter().Convert(petEntity.PetTypeEntity),
+                Owner= new OwnerConverter().Convert(petEntity.OwnerEntity),
                 Price = petEntity.Price,
                 SoldDate = petEntity.SoldDate
             };
@@ -29,6 +30,7 @@ namespace EASV.CS20s.Fei.Assignment.PetShop.Infrastructure.DataBase.Converter
                 Color = pet.Color,
                 Name = pet.Name,
                 PetTypeEntity = new PetTypeConverter().Convert(pet.PetType),
+                OwnerEntity = new OwnerConverter().Convert(pet.Owner),
                 Price = pet.Price,
                 SoldDate = pet.SoldDate
             };
