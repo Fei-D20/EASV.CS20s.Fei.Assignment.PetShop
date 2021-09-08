@@ -1,4 +1,5 @@
-﻿using EASV.CS20s.Fei.Assignment.PetShop.UI.Application;
+﻿using System;
+using EASV.CS20s.Fei.Assignment.PetShop.UI.Application;
 using EASV.CS20s.Fei.Assignment.PetShop.UIService.IApplication;
 using EASV.CS20s.Fei.Assignment.PetShop.UIService.UI;
 
@@ -9,9 +10,7 @@ namespace EASV.CS20s.Fei.Assignment.PetShop.UI
     {
         private static void Main(string[] args)
         {
-            MainMenu mainMenu = new MainMenu();
-            IMenuApplication menuApplication = new MenuApplication();
-            menuApplication.show(mainMenu);
+            Console.WriteLine("Hello World?");
         }
     }
 }

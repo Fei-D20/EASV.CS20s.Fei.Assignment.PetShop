@@ -11,17 +11,34 @@ namespace EASV.CS20s.Fei.Assignment.PetShop.Infrastructure.DataBase.Repositories
         public static List<PetEntity> PetEntities { get; set; } = new();
         private static int _id = 1;
         private readonly IPetConverter _petConverter;
+        private IPetTypeRepository _petTypeRepository;
 
         
-        public PetRepository(IPetConverter iPetConverter)
+        public PetRepository(IPetConverter iPetConverter,IPetTypeRepository petTypeRepository)
         {
             _petConverter = iPetConverter;
+            _petTypeRepository = petTypeRepository;
+
         }
 
         public Pet Create(Pet pet)
         {
             var petEntity = _petConverter.Convert(pet);
             petEntity.Id = _id++;
+
+            var newType = new PetType()
+            {
+                Type = petEntity.PetTypeEntity.Type
+            };
+            
+            var petType = _petTypeRepository.Read(newType);
+
+            if (petType == null)
+            {
+                _petTypeRepository.Create(newType);
+            }
+
+
             PetEntities.Add(petEntity);
             return _petConverter.Convert(petEntity);
         }
