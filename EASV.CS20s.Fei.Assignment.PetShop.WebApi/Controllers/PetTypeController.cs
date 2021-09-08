@@ -1,11 +1,12 @@
 using System.Collections.Generic;
 using EASV.CS20s.Fei.Assignment.PetShop.Core.IService;
 using EASV.CS20s.Fei.Assignment.PetShop.Core.Models;
-using EASV.CS20s.Fei.Assignment.PetShop.Infrastructure.DataBase.IConverter;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EASV.CS20s.Fei.Assignment.PetShop.WebApi.Controllers
 {
+    [ApiController]
+    [Route("[controller]")]
     public class PetTypeController
     {
         private readonly IPetTypeService _iPetTypeService;
