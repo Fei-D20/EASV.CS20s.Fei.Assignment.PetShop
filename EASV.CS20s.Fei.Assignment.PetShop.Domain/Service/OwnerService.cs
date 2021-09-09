@@ -20,19 +20,19 @@ namespace EASV.CS20s.Fei.Assignment.PetShop.Domain.Service
             return _iOwnerRepository.Create(owner);
         }
 
-        public Owner Delete(Owner owner)
+        public Owner Delete(int id)
         {
-            return _iOwnerRepository.Remove(owner);
+            return _iOwnerRepository.Remove(id);
         }
 
-        public Owner Modify(Owner owner)
+        public Owner Modify(int id, Owner owner)
         {
-            return _iOwnerRepository.Update(owner);
+            return _iOwnerRepository.Update(id, owner);
         }
 
-        public Owner Get(Owner owner)
+        public Owner Get(int id)
         {
-            return _iOwnerRepository.Read(owner);
+            return _iOwnerRepository.Read(id);
         }
 
         public List<Owner> GetAll()

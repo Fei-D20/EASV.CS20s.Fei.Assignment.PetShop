@@ -41,28 +41,19 @@ namespace EASV.CS20s.Fei.Assignment.PetShop.WebApi.Controllers
         public Owner Get(int id)
         {
             
-            return _iOwnerService.Get(new Owner()
-            {
-                Id = id
-            });
+            return _iOwnerService.Get(id);
         }
 
         [HttpPut("{id}")]
-        public Owner Put(int id)
+        public Owner Put(int id, Owner owner)
         {
-            return _iOwnerService.Modify(new Owner()
-            {
-                Id = id
-            });
+            return _iOwnerService.Modify(id,owner);
         }
 
         [HttpDelete("{id}")]
         public Owner Delete(int id)
         {
-            return _iOwnerService.Delete(new Owner()
-            {
-                Id = id
-            });
+            return _iOwnerService.Delete(id);
         }
         
     }

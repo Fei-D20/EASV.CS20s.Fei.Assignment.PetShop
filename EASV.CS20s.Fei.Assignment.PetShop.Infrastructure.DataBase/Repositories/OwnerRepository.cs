@@ -1,5 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.Dynamic;
+using System.Linq;
+using System.Runtime.CompilerServices;
 using EASV.CS20s.Fei.Assignment.PetShop.Core.Models;
 using EASV.CS20s.Fei.Assignment.PetShop.Domain.IRepository;
 using EASV.CS20s.Fei.Assignment.PetShop.Infrastructure.DataBase.Entities;
@@ -13,10 +16,29 @@ namespace EASV.CS20s.Fei.Assignment.PetShop.Infrastructure.DataBase.Repositories
         // public static List<OwnerEntity> _owners = new List<OwnerEntity>();
         private static int _id = 1;
         private readonly IOwnerConverter _iOwnerConverter;
+        
 
         public OwnerRepository(IOwnerConverter ownerConverter)
         {
             _iOwnerConverter = ownerConverter;
+            _owners.Add(new OwnerEntity()
+            {
+                Address = "none",
+                Email = "none",
+                FirstName = "John",
+                Id = 1,
+                LastName = "D",
+                PhoneNumber = "none"
+            });
+            
+            _owners.Add(new OwnerEntity()
+            {
+                Address = "none",
+                Email = "none",
+                FirstName = "Bob",
+                Id = 2,
+                LastName = "T"
+            });
         }
 
 
@@ -28,12 +50,11 @@ namespace EASV.CS20s.Fei.Assignment.PetShop.Infrastructure.DataBase.Repositories
              return _iOwnerConverter.Convert(ownerEntity);
         }
 
-        public Owner Remove(Owner owner)
+        public Owner Remove(int id)
         {
-            var ownerEntity = _iOwnerConverter.Convert(owner);
             foreach (var entity in _owners)
             {
-                if (entity.Id == ownerEntity.Id)
+                if (entity.Id == id)
                 {
                     _owners.Remove(entity);
                     return _iOwnerConverter.Convert(entity);
@@ -43,27 +64,29 @@ namespace EASV.CS20s.Fei.Assignment.PetShop.Infrastructure.DataBase.Repositories
             return null;
         }
 
-        public Owner Update(Owner owner)
+        public Owner Update(int id, Owner owner)
         {
             var ownerEntity = _iOwnerConverter.Convert(owner);
             foreach (var entity in _owners)
             {
-                if (entity.Id == ownerEntity.Id)
+                if (entity.Id == id)
                 {
+                    var firstOrDefault = _owners.Where(c => c.Id == id).FirstOrDefault();
                     _owners.Insert(ownerEntity.Id -1 , ownerEntity);
-                    return _iOwnerConverter.Convert(entity);
+                    return _iOwnerConverter.Convert(ownerEntity);
                 }
             }
 
             return null;
         }
+        
 
-        public Owner Read(Owner owner)
+        public Owner Read(int id)
         {
-            var ownerEntity = _iOwnerConverter.Convert(owner);
+            
             foreach (var entity in _owners)
             {
-                if (entity.Id == ownerEntity.Id)
+                if (entity.Id == id)
                 {
                     return _iOwnerConverter.Convert(entity);
                 }
