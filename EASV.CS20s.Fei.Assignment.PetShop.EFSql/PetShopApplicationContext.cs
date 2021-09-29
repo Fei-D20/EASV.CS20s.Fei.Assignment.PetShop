@@ -22,14 +22,19 @@ namespace EASV.CS20s.Fei.Assignment.PetShop.EFSql
                 .WithMany(pt => pt.Pets)
                 .OnDelete(DeleteBehavior.SetNull);
 
+            /*
+             * This part is how to insert 1000 random record in the data base
+             */
 
-            var random = new Random();
+            var random = new Random(); 
             var names = new List<string>{"AAA", "BBB", "CCC"};
 
-            for (int i = 1; i < 1000; i++)
+            
+            for (int i = 1; i < 1000; i++) // for loop start at 1 until 999
             {
-                var petName = $"{names[random.Next(0,3)]}{i}";
-                modelBuilder.Entity<PetEntity>()
+                var petName = $"{names[random.Next(0,3)]}{i}"; // make the random name + loop index
+                        // the list names with random index 
+                modelBuilder.Entity<PetEntity>() // use modelBuilder make the data
                     .HasData(new PetEntity()
                     {
                         Id = i,

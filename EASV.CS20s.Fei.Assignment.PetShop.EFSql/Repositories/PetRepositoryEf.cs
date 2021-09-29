@@ -135,6 +135,11 @@ namespace EASV.CS20s.Fei.Assignment.PetShop.EFSql.Repositories
         }
         
 
+        /*
+         * This is the new readAll has a parameter Filter
+         * The filter will offer two text box to input how many records show up
+         * and which page show up
+         */
         public List<Pet> ReadAll(Filter filter)
         {
             return _ctx.Pets
@@ -156,8 +161,8 @@ namespace EASV.CS20s.Fei.Assignment.PetShop.EFSql.Repositories
                 }
                 
                 })
-                .Skip(filter.Count * (filter.Page - 1))
-                .Take(filter.Count)
+                .Skip(filter.Count * (filter.Page - 1)) // this is swith the pages by filter
+                .Take(filter.Count) // this is after skip the record how many show up
                // .OrderBy(v => v.Name)
                 .ToList();
         }
