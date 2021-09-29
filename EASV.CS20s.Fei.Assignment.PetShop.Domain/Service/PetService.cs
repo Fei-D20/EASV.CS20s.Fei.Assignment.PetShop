@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using EASV.CS20s.Fei.Assignment.PetShop.Core.Filtering;
 using EASV.CS20s.Fei.Assignment.PetShop.Core.IService;
 using EASV.CS20s.Fei.Assignment.PetShop.Core.Models;
 using EASV.CS20s.Fei.Assignment.PetShop.Domain.IRepository;
@@ -23,24 +24,29 @@ namespace EASV.CS20s.Fei.Assignment.PetShop.Domain.Service
             return _iPetRepository.Create(pet);
         }
 
-        public Pet Delete(Pet pet)
+        public Pet Delete(int id)
         {
-            return _iPetRepository.Remove(pet);
+            return _iPetRepository.Remove(id);
         }
 
-        public Pet Modify(Pet pet)
+        public Pet Modify(int id, Pet pet)
         {
-            return _iPetRepository.Update(pet);
+            return _iPetRepository.Update(id,pet);
         }
 
-        public Pet Get(Pet pet)
+        public Pet Get(int id)
         {
-            return _iPetRepository.Read(pet);
+            return _iPetRepository.Read(id);
         }
 
-        public List<Pet> GetAll()
+        public List<Pet> GetAll(Filter filter)
         {
-            return _iPetRepository.ReadAll();
+            return _iPetRepository.ReadAll(filter);
+        }
+
+        public int GetTotalCount()
+        {
+            return _iPetRepository.GetTotalCount();
         }
     }
 }

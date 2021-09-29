@@ -19,19 +19,19 @@ namespace EASV.CS20s.Fei.Assignment.PetShop.Domain.Service
             return _iPetTypeRepository.Create(petType);
         }
 
-        public PetType Delete(PetType petType)
+        public PetType Delete(int id)
         {
-            return _iPetTypeRepository.Remove(petType);
+            return _iPetTypeRepository.Remove(id);
         }
 
-        public PetType Modify(PetType petType)
+        public PetType Modify(int id, PetType petType)
         {
-            return _iPetTypeRepository.Update(petType);
+            return _iPetTypeRepository.Update(id, petType);
         }
 
-        public PetType Get(PetType petType)
+        public PetType Get(int id)
         {
-            return _iPetTypeRepository.Read(petType);
+            return _iPetTypeRepository.Read(id);
         }
 
         public List<PetType> GetAll()

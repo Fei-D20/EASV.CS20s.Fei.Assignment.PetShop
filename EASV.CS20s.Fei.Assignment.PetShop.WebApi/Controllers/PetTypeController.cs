@@ -1,6 +1,10 @@
+using System;
 using System.Collections.Generic;
 using EASV.CS20s.Fei.Assignment.PetShop.Core.IService;
 using EASV.CS20s.Fei.Assignment.PetShop.Core.Models;
+using EASV.CS20s.Fei.Assignment.PetShop.WebApi.DTOs.DeleteDto;
+using EASV.CS20s.Fei.Assignment.PetShop.WebApi.DTOs.GetDto.PetTypeGetDto;
+using EASV.CS20s.Fei.Assignment.PetShop.WebApi.DTOs.PostDTO;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EASV.CS20s.Fei.Assignment.PetShop.WebApi.Controllers
@@ -17,48 +21,99 @@ namespace EASV.CS20s.Fei.Assignment.PetShop.WebApi.Controllers
         }
 
         [HttpPost]
-        public PetType Post(PetType petType)
-        {
-            if (petType == null)
+        public ActionResult<PetType> Post(PetTypePostDto petTypePostDto)
+        { 
+            try
             {
-                return null;
+                var type = new PetType()
+                {
+                    Type = petTypePostDto.Type
+                };
+                
+                return _iPetTypeService.Add(type);
+
+            }
+            catch (ArgumentException ae)
+            {
+                return BadRequest(ae.Message);
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, e.Message);
             }
 
-            return _iPetTypeService.Add(petType);
         }
 
         [HttpGet]
-        public List<PetType> Get()
+        public ActionResult<PetTypeGetDto> Get()
         {
-            return _iPetTypeService.GetAll();
+            try
+            {
+                var petTypes = _iPetTypeService.GetAll();
+                var petTypeGetDtos = new List<PetTypeGetDto>();
+
+                foreach (var VARIABLE in petTypes)
+                {
+                    petTypeGetDtos.Add(new PetTypeGetDto()
+                    {
+                        Type = VARIABLE.Type
+                    });
+                }
+                return Ok(petTypeGetDtos);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
         }
 
         [HttpGet("{id}")]
-        public PetType Get(int id)
+        public ActionResult<PetTypeGetDto> Get(int id)
         {
-
-            return _iPetTypeService.Get(new PetType()
+            try
             {
-                Id = id
-            });
+                var petType = _iPetTypeService.Get(id);
+
+                return Ok(new PetTypeGetDto()
+                {
+                    Type = petType.Type
+                });
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
         }
 
         [HttpPut("{id}")]
-        public PetType Put(int id)
+        public ActionResult<PetType> Put(int id, PetTypeDeleteDto petTypeDeleteDto)
         {
-            return _iPetTypeService.Modify(new PetType()
+            try
             {
-                Id = id
-            });
+                return Ok(_iPetTypeService.Modify(id, new PetType()
+                {
+                    Type = petTypeDeleteDto.Type
+                }));
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
         }
 
         [HttpDelete("{id}")]
-        public PetType Delete(int id)
+        public ActionResult<PetTypeDeleteDto> Delete(int id)
         {
-            return _iPetTypeService.Delete((new PetType()
+            try
             {
-                Id = id
-            }));
+                var petType = _iPetTypeService.Delete(id);
+                
+                return Ok("The pet type have been delete. ");
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
         }
 
     }

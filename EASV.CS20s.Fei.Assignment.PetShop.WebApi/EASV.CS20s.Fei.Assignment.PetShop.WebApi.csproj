@@ -5,6 +5,8 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.9" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.9" />
         <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
         <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
     </ItemGroup>
@@ -12,7 +14,7 @@
     <ItemGroup>
       <ProjectReference Include="..\EASV.CS20s.Fei.Assignment.PetShop.Core\EASV.CS20s.Fei.Assignment.PetShop.Core.csproj" />
       <ProjectReference Include="..\EASV.CS20s.Fei.Assignment.PetShop.Domain\EASV.CS20s.Fei.Assignment.PetShop.Domain.csproj" />
-      <ProjectReference Include="..\EASV.CS20s.Fei.Assignment.PetShop.Infrastructure.DataBase\EASV.CS20s.Fei.Assignment.PetShop.Infrastructure.DataBase.csproj" />
+      <ProjectReference Include="..\EASV.CS20s.Fei.Assignment.PetShop.EFSql\EASV.CS20s.Fei.Assignment.PetShop.EFSql.csproj" />
     </ItemGroup>
 
 </Project>

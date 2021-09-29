@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace EASV.CS20s.Fei.Assignment.PetShop.Core.Models
 {
     public class Owner
@@ -8,5 +10,7 @@ namespace EASV.CS20s.Fei.Assignment.PetShop.Core.Models
         public string Address { get; set; }
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
+
+        public List<Pet> Pets { get; set; }
     }
 }

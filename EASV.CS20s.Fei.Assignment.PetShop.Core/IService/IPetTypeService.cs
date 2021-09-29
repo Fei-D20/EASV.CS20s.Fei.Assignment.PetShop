@@ -6,9 +6,9 @@ namespace EASV.CS20s.Fei.Assignment.PetShop.Core.IService
     public interface IPetTypeService
     {
         public PetType Add(PetType petType);
-        public PetType Delete(PetType petType);
-        public PetType Modify(PetType petType);
-        public PetType Get(PetType petType);
+        public PetType Delete(int id);
+        public PetType Modify(int id, PetType petType);
+        public PetType Get(int id);
         public List<PetType> GetAll();
     }
 }
