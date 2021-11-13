@@ -1,11 +1,9 @@
 using System;
 using System.Collections.Generic;
-using EASV.CS20s.Fei.Assignment.PetShop.Core.Filtering;
 using EASV.CS20s.Fei.Assignment.PetShop.Core.IService;
 using EASV.CS20s.Fei.Assignment.PetShop.Core.Models;
 using EASV.CS20s.Fei.Assignment.PetShop.WebApi.DTOs.DeleteDto;
 using EASV.CS20s.Fei.Assignment.PetShop.WebApi.DTOs.GetDto.OwnerGetDto;
-using EASV.CS20s.Fei.Assignment.PetShop.WebApi.DTOs.GetDto.PetGetDto;
 using EASV.CS20s.Fei.Assignment.PetShop.WebApi.DTOs.PostDTO;
 using EASV.CS20s.Fei.Assignment.PetShop.WebApi.DTOs.UpdateDTO;
 using Microsoft.AspNetCore.Mvc;

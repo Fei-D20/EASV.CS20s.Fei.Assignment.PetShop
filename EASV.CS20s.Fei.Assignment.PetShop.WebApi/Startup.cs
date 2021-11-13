@@ -55,6 +55,18 @@ namespace EASV.CS20s.Fei.Assignment.PetShop.WebApi
             services.AddScoped<IOwnerService, OwnerService>();
             // services.AddScoped<IOwnerConverter, OwnerConverter>();
             services.AddScoped<IOwnerRepository, OwnerRepositoryEf>();
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("petShop-policy", builder =>
+                {
+                    builder
+                        .AllowAnyHeader()
+                        .AllowAnyMethod()
+                        .WithOrigins("http://localhost:4200");
+                });
+            });
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -80,8 +92,11 @@ namespace EASV.CS20s.Fei.Assignment.PetShop.WebApi
             app.UseRouting();
 
             app.UseAuthorization();
+            
+            app.UseCors("petShop-policy");
 
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
+
         }
     }
 }
